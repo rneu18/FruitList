@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".FruitDetails">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -159,14 +159,16 @@
             android:layout_height="wrap_content"
             android:text="Prev"
             android:onClick="previousFruit"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+           />
         <Button
             android:id="@+id/next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Next"
             android:onClick="nextFruit"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            />
     </LinearLayout>
 
 
