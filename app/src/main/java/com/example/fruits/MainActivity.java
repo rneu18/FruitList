@@ -2,6 +2,8 @@ package com.example.fruits;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Handler;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -15,6 +17,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -26,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private List<String> fruits = new ArrayList<>();
     List<Integer> price = new ArrayList<>();
     List<Integer> weight = new ArrayList<>();
+    SwipeRefreshLayout swipeRefreshLayout;
 
 
 
@@ -34,6 +38,26 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swiperefresh);
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+
+                // implement Handler to wait for 3 seconds and then update UI means update value of TextView
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        // cancle the Visual indication of a refresh
+                        swipeRefreshLayout.setRefreshing(false);
+                        price.clear();
+                        weight.clear();
+                        fruits.clear();
+                        initilizedRetroFit();
+                    }
+                }, 2000);
+            }
+        });
 
 
 
@@ -74,10 +98,6 @@ public class MainActivity extends AppCompatActivity {
                 }
                 System.out.println("22222222222222222222 "+ fruits.toString());
                 initRecyclerView();
-
-
-
-
 
 
             }
