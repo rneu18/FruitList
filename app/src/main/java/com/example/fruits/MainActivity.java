@@ -58,12 +58,6 @@ public class MainActivity extends AppCompatActivity {
                 }, 2000);
             }
         });
-
-
-
-
-        // specify an adapter (see also next example)
-
         initilizedRetroFit();
 
     }
@@ -91,12 +85,11 @@ public class MainActivity extends AppCompatActivity {
                         fruits.add(response.body().getFruit().get(i).getType());
                         price.add(response.body().getFruit().get(i).getPrice());
                         weight.add(response.body().getFruit().get(i).getWeight());
-                       System.out.println("1111111111111111111111111111111111111 "+ response.body().getFruit().get(i).getType());
-                       System.out.println("22222222222222222222 "+ fruits.toString());
+
                     }
 
                 }
-                System.out.println("22222222222222222222 "+ fruits.toString());
+
                 initRecyclerView();
 
 
@@ -127,5 +120,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
 
 }

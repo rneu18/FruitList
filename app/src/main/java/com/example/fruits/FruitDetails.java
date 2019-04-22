@@ -4,17 +4,24 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class FruitDetails extends AppCompatActivity {
 
-    String fruitName = " ";
-    String friutPrice ="";
-    String fruitWeight="";
+    ArrayList<String> fruitName = new ArrayList<>();
+    ArrayList<Integer> fruitWeight = new ArrayList<>();
+    ArrayList<Integer> friutPrice = new ArrayList<>();
     TextView name, price, weight;
     ImageView backButton;
+    int currentPosition;
+    int zero = 0;
+    int totalNumber;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +32,8 @@ public class FruitDetails extends AppCompatActivity {
         price = (TextView) findViewById(R.id.fruit_price);
         weight = (TextView) findViewById(R.id.fruit_weight);
         backButton = (ImageView) findViewById(R.id.backBtn);
+
+
         backButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -34,19 +43,65 @@ public class FruitDetails extends AppCompatActivity {
             }
         });
 
+
+
         Intent intent = getIntent();
+        Bundle bundle = getIntent().getExtras();
         try{
-            fruitName= intent.getStringExtra("name");
-            friutPrice= intent.getStringExtra("price");
-            fruitWeight = intent.getStringExtra("weight");
+            currentPosition =  intent.getIntExtra("myPosition", 0);
+            fruitName = (ArrayList<String>) bundle.getStringArrayList("MyArray_name");
+            fruitWeight = (ArrayList<Integer>) bundle.getIntegerArrayList("MyArray_weight");
+            friutPrice = (ArrayList<Integer>) bundle.getIntegerArrayList("MyArray_price");
+            totalNumber = fruitName.size()-1;
+
 
         }catch(Exception e){
 
         }
-        name.setText("Name: "+fruitName);
-        price.setText("Price: "+friutPrice+ " £");
-        weight.setText("Weight: "+fruitWeight+ " Kg");
 
+        settext();
+
+
+
+
+
+    }
+
+    private void settext() {
+        name.setText("Name: "+fruitName.get(currentPosition));
+        price.setText("Price: "+friutPrice.get(currentPosition)+ " £");
+        weight.setText("Weight: "+fruitWeight.get(currentPosition)+ " Kg");
+
+    }
+
+
+
+    public void nextFruit(View view) {
+
+        if(currentPosition == (totalNumber)){
+
+            currentPosition = 0;
+
+        }else{
+            currentPosition = currentPosition +1;
+
+        }
+        settext();
+
+    }
+    public void previousFruit(View view) {
+
+        if(currentPosition == zero){
+
+            currentPosition = totalNumber;
+
+        }else{
+
+            currentPosition = currentPosition -1;
+
+
+        }
+        settext();
 
     }
 }

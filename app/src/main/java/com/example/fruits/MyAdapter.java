@@ -2,6 +2,7 @@ package com.example.fruits;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.RecyclerView;
@@ -45,15 +46,22 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>  {
     public void onBindViewHolder( MyViewHolder currentViewHolder, final int i) {
         currentViewHolder.fruit.setText(items.get(i));
         //currentViewHolder.fruit.setText("Test");
-        System.out.println("333333333333333333333333333 "+items.get(i));
+
         currentViewHolder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 myPosition = i;
                 Intent intent = new Intent(context, FruitDetails.class);
-                intent.putExtra("name", items.get(i));
-                intent.putExtra("price", String.valueOf(prices.get(i)));
-                intent.putExtra("weight", String.valueOf(weights.get(i)));
+
+                intent.putExtra("myPosition", i);
+
+
+                intent.putExtra("MyArray_name", items);
+                intent.putExtra("MyArray_weight", weights);
+                intent.putExtra("MyArray_price", prices);
+
+
+
                 context.startActivity(intent);
 
 
@@ -71,7 +79,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>  {
     @Override
     public int getItemCount() {
 
-        System.out.println("333333333333333333333333333 "+items.size());
+
         return items.size();
 
     }
