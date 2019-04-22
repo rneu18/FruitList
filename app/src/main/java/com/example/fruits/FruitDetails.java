@@ -4,10 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -16,7 +14,7 @@ public class FruitDetails extends AppCompatActivity {
     ArrayList<String> fruitName = new ArrayList<>();
     ArrayList<Integer> fruitWeight = new ArrayList<>();
     ArrayList<Integer> friutPrice = new ArrayList<>();
-    TextView name, price, weight;
+    TextView name, price, weight, serialN;
     ImageView backButton;
     int currentPosition;
     int zero = 0;
@@ -31,6 +29,7 @@ public class FruitDetails extends AppCompatActivity {
         name = (TextView) findViewById(R.id.fruit_name);
         price = (TextView) findViewById(R.id.fruit_price);
         weight = (TextView) findViewById(R.id.fruit_weight);
+        serialN = (TextView) findViewById(R.id.fruit_SN);
         backButton = (ImageView) findViewById(R.id.backBtn);
 
 
@@ -59,7 +58,7 @@ public class FruitDetails extends AppCompatActivity {
 
         }
 
-        settext();
+        setText();
 
 
 
@@ -67,10 +66,11 @@ public class FruitDetails extends AppCompatActivity {
 
     }
 
-    private void settext() {
-        name.setText("Name: "+fruitName.get(currentPosition));
-        price.setText("Price: "+friutPrice.get(currentPosition)+ " £");
-        weight.setText("Weight: "+fruitWeight.get(currentPosition)+ " Kg");
+    private void setText() {
+        serialN.setText(String.valueOf(currentPosition+1));
+        name.setText(fruitName.get(currentPosition));
+        price.setText(friutPrice.get(currentPosition)+ " £");
+        weight.setText(fruitWeight.get(currentPosition)+ " Kg");
 
     }
 
@@ -86,7 +86,7 @@ public class FruitDetails extends AppCompatActivity {
             currentPosition = currentPosition +1;
 
         }
-        settext();
+        setText();
 
     }
     public void previousFruit(View view) {
@@ -101,7 +101,7 @@ public class FruitDetails extends AppCompatActivity {
 
 
         }
-        settext();
+        setText();
 
     }
 }

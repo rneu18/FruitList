@@ -40,46 +40,109 @@
         card_view:cardCornerRadius="4dp">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical"
             android:layout_margin="20dp"
             android:padding="10dp">
-
             <TextView
                 android:id="@+id/fruit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorPrimary"
                 android:gravity="center"
+                android:layout_gravity="center"
                 android:padding="10dp"
                 android:text="Fruit Details"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="S.N.: "/>
+                <TextView
+                    android:id="@+id/fruit_SN"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:gravity="left"
+                    android:layout_weight="1"
+                    android:text="Fruit"
+                    android:padding="10dp"/>
 
-            <TextView
-                android:id="@+id/fruit_name"
+
+
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimary"
-                android:gravity="center"
-                android:text="Fruit"
-                android:padding="10dp"/>
-            <TextView
-                android:id="@+id/fruit_weight"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Name: "/>
+                <TextView
+                    android:id="@+id/fruit_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:gravity="left"
+                    android:layout_weight="1"
+                    android:text="Fruit"
+                    android:padding="10dp"/>
+
+
+
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimary"
-                android:gravity="center"
-                android:padding="10dp"
-                android:text="Weight"/>
-            <TextView
-                android:id="@+id/fruit_price"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Price: "/>
+                <TextView
+                    android:id="@+id/fruit_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:gravity="left"
+                    android:layout_weight="1"
+                    android:padding="10dp"
+                    android:text="Price"/>
+
+
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimary"
-                android:gravity="center"
-                android:padding="10dp"
-                android:text="Price"/>
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Weight: "/>
+                <TextView
+                    android:id="@+id/fruit_weight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:gravity="left"
+                    android:layout_weight="1"
+                    android:padding="10dp"
+                    android:text="Weight"/>
+
+
+            </LinearLayout>
+
+
+
+
+
+
 
 
         </LinearLayout>
