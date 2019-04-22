@@ -68,7 +68,7 @@ public class FruitDetails extends AppCompatActivity {
 
     private void setText() {
         serialN.setText(String.valueOf(currentPosition+1));
-        name.setText(fruitName.get(currentPosition));
+        name.setText(fruitName.get(currentPosition).toUpperCase());
         price.setText(friutPrice.get(currentPosition)+ " £");
         weight.setText(fruitWeight.get(currentPosition)+ " Kg");
 

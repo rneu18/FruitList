@@ -44,7 +44,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>  {
 
     @Override
     public void onBindViewHolder( MyViewHolder currentViewHolder, final int i) {
-        currentViewHolder.fruit.setText(items.get(i));
+        currentViewHolder.fruit.setText(items.get(i).toUpperCase());
         //currentViewHolder.fruit.setText("Test");
 
         currentViewHolder.parentLayout.setOnClickListener(new View.OnClickListener() {
