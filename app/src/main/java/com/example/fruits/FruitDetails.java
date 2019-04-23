@@ -80,7 +80,7 @@ public class FruitDetails extends AppCompatActivity {
 
         if(currentPosition == (totalNumber)){
 
-            currentPosition = 0;
+            currentPosition = currentPosition;
 
         }else{
             currentPosition = currentPosition +1;
@@ -93,7 +93,7 @@ public class FruitDetails extends AppCompatActivity {
 
         if(currentPosition == zero){
 
-            currentPosition = totalNumber;
+            currentPosition = 0;
 
         }else{
 
